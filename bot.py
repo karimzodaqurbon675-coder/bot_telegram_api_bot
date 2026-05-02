@@ -12,12 +12,13 @@ from telebot import types
 
 # ===== CONFIG =====
 REAL_API_URL = "https://info-ob49.onrender.com/api/account/"
-BOT_TOKEN = "8703834112:AAEmaLXHKV53PeS28M05_KF7msIZ9r62nKA"
+BOT_TOKEN = "TOKEN_И_НАВ_АЗ_BOTFATHER"
 ADMIN_IDS = [7424107874]
 ADMIN_USERNAME = "@zadxpr0"
 CHANNELS = ["@zadxprootziv", "@zadxproooo"]
 SERVER_HOST = "0.0.0.0"
 SERVER_PORT = int(os.environ.get("PORT", 5000))
+RENDER_URL = "https://bot-telegram-api-bot.onrender.com"
 
 # ===== DATABASE =====
 DB_FILE = "/tmp/keys.db"
@@ -337,10 +338,6 @@ def handle_messages(msg):
         username = target[1:] if target.startswith("@") else target
         key, expires = create_key(0, username, days, max_req)
         req_text = f"{max_req} request" if max_req != -1 else "Беҳад"
-        
-        # URL и Render гирифтан
-        render_url = os.environ.get("RENDER_EXTERNAL_URL", "https://your-app.onrender.com")
-        
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("🔙 Бозгашт", callback_data="back_menu"))
         bot.send_message(chat_id,
@@ -351,7 +348,7 @@ def handle_messages(msg):
             f"📊 Request: *{req_text}*\n"
             f"📅 Тамом: `{expires.strftime('%Y-%m-%d %H:%M')}`\n\n"
             f"🌐 *Истифода:*\n"
-            f"`{render_url}/api/player?key={key}&uid=UID&region=IND`",
+            f"`{RENDER_URL}/api/player?key={key}&uid=UID&region=IND`",
             parse_mode="Markdown", reply_markup=markup)
 
     elif user_uid_state.get(user_id) == "admin_waiting_revoke" and is_admin(user_id):
