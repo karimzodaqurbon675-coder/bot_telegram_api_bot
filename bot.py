@@ -18,7 +18,7 @@ ADMIN_USERNAME = "@zadxpr0"
 CHANNELS = ["@zadxprootziv", "@zadxproooo"]
 SERVER_HOST = "0.0.0.0"
 SERVER_PORT = int(os.environ.get("PORT", 5000))
-RENDER_URL = "https://bot-telegram-api-bot-2.onrender.com"
+RENDER_URL = os.environ.get("RENDER_EXTERNAL_URL", "")
 
 # ===== DATABASE =====
 DB_FILE = "/tmp/keys.db"
