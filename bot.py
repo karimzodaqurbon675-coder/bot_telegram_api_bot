@@ -12,7 +12,7 @@ from telebot import types
 
 # ===== CONFIG =====
 REAL_API_URL = "https://info-ob49.onrender.com/api/account/"
-BOT_TOKEN = "TOKEN_И_НАВ_АЗ_BOTFATHER"
+BOT_TOKEN = "8703834112:AAEmaLXHKV53PeS28M05_KF7msIZ9r62nKA"
 ADMIN_IDS = [7424107874]
 ADMIN_USERNAME = "@zadxpr0"
 CHANNELS = ["@zadxprootziv", "@zadxproooo"]
